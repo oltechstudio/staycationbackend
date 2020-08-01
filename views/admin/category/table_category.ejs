@@ -3,7 +3,7 @@
   <div class="card-header py-3">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal">
-      <i class="fas fa-plus"></i>
+      <i class="fas fa-plus"></i> Add New Category
     </button>
   </div>
   <div class="card-body">
@@ -23,9 +23,9 @@
             <td><%= category[i].name %></td>
             <td>
               <form action="/admin/category/<%= category[i].id %>?_method=DELETE" method="POST">
-                <a href="javascript:void();" type="button" class="btn btn-warning btn-circle btn-sm button-update"
+                <a href="javascript:void();" type="button" class="btn btn-warning button-update"
                   data-id="<%= category[i].id %>" data-name="<%= category[i].name %>"><i class="fas fa-edit"></i></a>
-                <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
               </form>
             </td>
           </tr>
