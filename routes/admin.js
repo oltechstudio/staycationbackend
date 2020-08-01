@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const AdminController = require('../controllers/AdminController');
+const AdminController = require('../controllers/adminController');
 const ActivityController = require('../controllers/ActivityController');
 const BankController = require('../controllers/BankController');
 const BookingController = require('../controllers/BookingController');
