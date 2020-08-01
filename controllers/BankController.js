@@ -55,7 +55,7 @@ module.exports = {
                     req.flash('alertStatus', 'success');
                     res.redirect('/admin/bank');
                } else {
-                    await fs.unlink(path.join(`public/${bank.imageUrl}`));
+                    await fs.unlink(path.join(`public/images/${bank.imageUrl}`));
                     bank.name = name;
                     bank.nameBank = nameBank;
                     bank.nomorRekening = nomorRekening;
@@ -76,7 +76,7 @@ module.exports = {
           try {
                const { id } = req.params;
                const bank = await Bank.findOne({ _id: id });
-               await fs.unlink(path.join(`public/${bank.imageUrl}`));
+               await fs.unlink(path.join(`public/images/${bank.imageUrl}`));
                await bank.remove();
                req.flash('alertMessage', 'Success Delete Bank');
                req.flash('alertStatus', 'success');

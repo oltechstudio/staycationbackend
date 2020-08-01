@@ -42,7 +42,7 @@ module.exports = {
                     req.flash('alertStatus', 'success');
                     res.redirect(`/admin/item/show-detail-item/${itemId}`);
                } else {
-                    await fs.unlink(path.join(`public/${activity.imageUrl}`));
+                    await fs.unlink(path.join(`public/images/${activity.imageUrl}`));
                     activity.name = name;
                     activity.type = type;
                     activity.imageUrl = `images/${req.file.filename}`
@@ -70,7 +70,7 @@ module.exports = {
                          await item.save();
                     }
                }
-               await fs.unlink(path.join(`public/${activity.imageUrl}`));
+               await fs.unlink(path.join(`public/images/${activity.imageUrl}`));
                await activity.remove();
                req.flash('alertMessage', 'Success Delete Activity');
                req.flash('alertStatus', 'success');

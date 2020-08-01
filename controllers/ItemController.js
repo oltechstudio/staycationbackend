@@ -122,7 +122,7 @@ module.exports = {
                if (req.files.length > 0) {
                     for (let i = 0; i < item.imageId.length; i++) {
                          const imageUpdate = await Image.findOne({ _id: item.imageId[i]._id });
-                         await fs.unlink(path.join(`public/${imageUpdate.imageUrl}`));
+                         await fs.unlink(path.join(`public/images/${imageUpdate.imageUrl}`));
                          imageUpdate.imageUrl = `${req.files[i].filename}`;
                          await imageUpdate.save();
                     }
@@ -159,7 +159,7 @@ module.exports = {
                const item = await Item.findOne({ _id: id }).populate('imageId');
                for (let i = 0; i < item.imageId.length; i++) {
                     Image.findOne({ _id: item.imageId[i]._id }).then((image) => {
-                         fs.unlink(path.join(`public/${image.imageUrl}`));
+                         fs.unlink(path.join(`public/images/${image.imageUrl}`));
                          image.remove();
                     }).catch((error) => {
                          req.flash('alertMessage', `${error.message}`);
