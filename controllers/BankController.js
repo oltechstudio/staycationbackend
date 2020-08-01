@@ -30,7 +30,7 @@ module.exports = {
                     name,
                     nameBank,
                     nomorRekening,
-                    imageUrl: `images/${req.file.filename}`
+                    imageUrl: `${req.file.filename}`
                });
                req.flash('alertMessage', 'Success Add Bank');
                req.flash('alertStatus', 'success');
@@ -59,7 +59,7 @@ module.exports = {
                     bank.name = name;
                     bank.nameBank = nameBank;
                     bank.nomorRekening = nomorRekening;
-                    bank.imageUrl = `images/${req.file.filename}`
+                    bank.imageUrl = `${req.file.filename}`
                     await bank.save();
                     req.flash('alertMessage', 'Success Update Bank');
                     req.flash('alertStatus', 'success');

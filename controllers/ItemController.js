@@ -49,7 +49,7 @@ module.exports = {
                     category.itemId.push({ _id: item._id });
                     await category.save();
                     for (let i = 0; i < req.files.length; i++) {
-                         const imageSave = await Image.create({ imageUrl: `images/${req.files[i].filename}` });
+                         const imageSave = await Image.create({ imageUrl: `${req.files[i].filename}` });
                          item.imageId.push({ _id: imageSave._id });
                          await item.save();
                     }
@@ -123,7 +123,7 @@ module.exports = {
                     for (let i = 0; i < item.imageId.length; i++) {
                          const imageUpdate = await Image.findOne({ _id: item.imageId[i]._id });
                          await fs.unlink(path.join(`public/${imageUpdate.imageUrl}`));
-                         imageUpdate.imageUrl = `images/${req.files[i].filename}`;
+                         imageUpdate.imageUrl = `${req.files[i].filename}`;
                          await imageUpdate.save();
                     }
                     item.title = title;

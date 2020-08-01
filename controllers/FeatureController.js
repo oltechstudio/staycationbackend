@@ -14,7 +14,7 @@ module.exports = {
                     name,
                     qty,
                     itemId,
-                    imageUrl: `images/${req.file.filename}`
+                    imageUrl: `${req.file.filename}`
                });
 
                const item = await Item.findOne({ _id: itemId });
@@ -45,7 +45,7 @@ module.exports = {
                     await fs.unlink(path.join(`public/${feature.imageUrl}`));
                     feature.name = name;
                     feature.qty = qty;
-                    feature.imageUrl = `images/${req.file.filename}`
+                    feature.imageUrl = `${req.file.filename}`
                     await feature.save();
                     req.flash('alertMessage', 'Success Update Feature');
                     req.flash('alertStatus', 'success');
